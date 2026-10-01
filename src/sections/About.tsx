@@ -29,10 +29,11 @@ export default function About() {
             viewport={{ once: true, margin: '-80px' }}
             transition={{ duration: 0.5, ease: 'easeOut', delay: 0.1 }}
           >
-            <p className="leading-relaxed text-neutral-600 dark:text-fog">{profile.bio}</p>
-            <p className="mt-4 leading-relaxed text-neutral-600 dark:text-fog">
-              when i'm not shipping code, you'll find me contributing to open source, writing about
-              things i learn, or profiling apps that are slower than they should be.
+            <p className="indent-8 text-justify leading-relaxed text-neutral-600 dark:text-fog">
+              {profile.bio}
+            </p>
+            <p className="mt-4 indent-8 text-justify leading-relaxed text-neutral-600 dark:text-fog">
+              With a foundation in both frontend and backend development, I specialize in building end-to-end systems, from the database and server logic to the dashboard the user sees. My thesis project, a facial recognition security system with role-based access control, real-time monitoring, and AI-powered identification, shows how I combine modern web development with intelligent technology to solve real-world problems.
             </p>
           </motion.div>
 

@@ -20,7 +20,7 @@ interface HeroProps {
 
 export default function Hero({ loading }: HeroProps) {
   const reduceMotion = useReducedMotion()
-  const { displayed } = useTypewriter(`hello, i'm ${profile.name}`, 70, 500, !loading)
+  const { displayed } = useTypewriter(`Hello, i'm ${profile.name}`, 70, 500, !loading)
   const { scrollY } = useScroll()
   const terminalY = useTransform(scrollY, [0, 600], [0, 90])
 
@@ -63,7 +63,7 @@ export default function Hero({ loading }: HeroProps) {
 
           <motion.p
             variants={item}
-            className="mt-4 max-w-xl leading-relaxed text-neutral-600 dark:text-fog"
+            className="mt-4 max-w-xl indent-8 text-justify leading-relaxed text-neutral-600 dark:text-fog"
           >
             {profile.pitch}
           </motion.p>

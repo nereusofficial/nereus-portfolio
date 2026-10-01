@@ -97,7 +97,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
 
             <div className="flex flex-1 flex-col p-5">
               <h3 className="font-mono text-lg font-bold tracking-tight">{project.title}</h3>
-              <p className="mt-2 flex-1 text-sm leading-relaxed text-neutral-600 dark:text-fog">
+              <p className="mt-2 flex-1 indent-4 text-justify text-sm leading-relaxed text-neutral-600 dark:text-fog">
                 {project.description}
               </p>
 

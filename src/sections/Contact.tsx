@@ -29,8 +29,8 @@ export default function Contact() {
             transition={{ duration: 0.5, ease: 'easeOut', delay: 0.1 }}
           >
             <h3 className="font-mono text-xl font-bold tracking-tight">let's work together</h3>
-            <p className="mt-4 leading-relaxed text-neutral-600 dark:text-fog">
-              open to freelance projects, full-time roles, and interesting collaborations. if you
+            <p className="mt-4 indent-8 text-justify leading-relaxed text-neutral-600 dark:text-fog">
+              Open to freelance projects, full-time roles, and interesting collaborations. if you
               have an idea or just want to talk shop, my inbox is always open.
             </p>
             <div className="mt-8 font-mono text-sm">

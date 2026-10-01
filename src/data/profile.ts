@@ -2,9 +2,9 @@ import type { NavLink, Profile } from '@/types'
 
 export const profile: Profile = {
   name: 'Daevid Lawrence Esporlas',
-  role: 'full-stack developer',
-  pitch: 'I build fast, accessible web apps with clean architecture and a obsession for detail.',
-  bio: 'I am a full-stack developer with a passion for building products that are fast, accessible, and a joy to use. My focus is on clean architecture, thoughtful UX, and writing code that the next developer thanks you for.',
+  role: 'Web Developer',
+  pitch: 'I design and build responsive, user-friendly web applications with React, Node.js, and PostgreSQL, from database to interface.',
+  bio: 'I am a full stack web developer with a passion for building fast, reliable, and user-friendly web applications. My expertise lies in turning ideas into complete, working products using React, TypeScript, Tailwind CSS, Node.js, and PostgreSQL, with a strong focus on clean architecture and interfaces that feel effortless to use.',
   github: 'https://github.com/nereusofficial',
   indeed: 'https://profile.indeed.com/?hl=en_PH&co=PH&from=gnav-homepage',
   facebook: 'https://www.facebook.com/official.nereus1',

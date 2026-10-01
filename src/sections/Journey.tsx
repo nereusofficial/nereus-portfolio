@@ -60,7 +60,7 @@ export default function Journey() {
                 </span>
               </div>
 
-              <p className="mt-2 max-w-2xl text-sm leading-relaxed text-neutral-600 dark:text-fog">
+              <p className="mt-2 max-w-2xl indent-8 text-justify text-sm leading-relaxed text-neutral-600 dark:text-fog">
                 {entry.description}
               </p>
 
