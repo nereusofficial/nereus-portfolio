@@ -96,19 +96,22 @@ export default function ContactForm() {
 
   if (submitted) {
     return (
-      <div className="border border-neutral-300 bg-white p-8 text-center shadow-[8px_8px_0_0_rgb(0_0_0/0.07),0_24px_50px_-16px_rgb(0_0_0/0.28)] dark:border-line dark:bg-panel dark:shadow-[8px_8px_0_0_rgb(255_255_255/0.06),0_24px_50px_-16px_rgb(0_0_0/0.65)]">
-        <CheckCircle2 className="mx-auto h-10 w-10" aria-hidden="true" />
-        <p className="mt-4 font-mono text-sm text-neutral-500 dark:text-fog">
-          <span className="text-neutral-400 dark:text-neutral-600">$</span> send --to {values.email}
+      <div className="border border-neutral-300 bg-white p-8 text-center shadow-[8px_8px_0_0_rgb(0_0_0/0.07),0_24px_50px_-16px_rgb(0_0_0/0.28)] sm:p-10 dark:border-line dark:bg-panel dark:shadow-[8px_8px_0_0_rgb(255_255_255/0.06),0_24px_50px_-16px_rgb(0_0_0/0.65)]">
+        <div className="mx-auto flex h-12 w-12 items-center justify-center border border-neutral-300 dark:border-line">
+          <CheckCircle2 className="h-6 w-6" aria-hidden="true" />
+        </div>
+        <h3 className="mt-5 font-mono text-xl font-bold tracking-tight">message sent</h3>
+        <p className="mt-2 break-words font-mono text-xs text-neutral-500 dark:text-fog">
+          <span className="text-neutral-400 dark:text-neutral-600">{'>'}</span> delivered to{' '}
+          {values.email}
         </p>
-        <p className="mt-2 font-mono text-lg font-bold">message sent — status: 200 OK</p>
-        <p className="mt-2 text-sm text-neutral-600 dark:text-fog">
-          thanks for reaching out, i'll get back to you soon.
+        <p className="mt-4 text-sm leading-relaxed text-neutral-600 dark:text-fog">
+          Thanks for reaching out — I'll get back to you within 24–48 hours.
         </p>
         <button
           type="button"
           onClick={handleReset}
-          className="mt-6 cursor-pointer border border-neutral-900 px-4 py-2 font-mono text-sm transition-colors duration-200 hover:bg-neutral-900 hover:text-white dark:border-white dark:hover:bg-white dark:hover:text-black"
+          className="mt-6 cursor-pointer border border-neutral-900 px-5 py-2.5 font-mono text-sm transition-colors duration-200 hover:bg-neutral-900 hover:text-white dark:border-white dark:hover:bg-white dark:hover:text-black"
         >
           send another
         </button>

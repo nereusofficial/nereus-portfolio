@@ -43,28 +43,28 @@ export default function LoadingScreen({ fading }: LoadingScreenProps) {
     <div
       role="status"
       aria-label="Installing portfolio"
-      className={`fixed inset-0 z-50 flex items-center justify-center bg-black transition-all duration-500 ${
+      className={`fixed inset-0 z-50 flex items-center justify-center overflow-x-hidden bg-black transition-all duration-500 ${
         fading ? 'pointer-events-none scale-105 opacity-0' : 'opacity-100'
       }`}
     >
-      <div className="w-full max-w-xl px-6 font-mono text-base sm:text-lg">
+      <div className="w-full max-w-md px-5 font-mono text-sm sm:max-w-xl sm:px-6 sm:text-lg">
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.2 }}
-          className="text-neutral-300"
+          className="break-words text-neutral-300"
         >
           <span className="text-neutral-600">$</span> npm install daevid-portfolio
         </motion.p>
 
-        <div className="mt-6 space-y-2">
+        <div className="mt-5 space-y-1.5 sm:mt-6 sm:space-y-2">
           {INSTALL_LINES.map((line, index) => (
             <motion.p
               key={line}
               initial={{ opacity: 0, x: -8 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: reduceMotion ? 0 : 0.35 + index * 0.4, duration: 0.25 }}
-              className="text-neutral-500"
+              className="break-words text-xs text-neutral-500 sm:text-base"
             >
               {line}
             </motion.p>
@@ -75,12 +75,12 @@ export default function LoadingScreen({ fading }: LoadingScreenProps) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: reduceMotion ? 0 : 0.5, duration: 0.3 }}
-          className="mt-8 text-xl text-neutral-200 sm:text-2xl"
+          className="mt-6 break-words text-base text-neutral-200 sm:mt-8 sm:text-2xl"
         >
           [{bar}] {progress}%
         </motion.p>
 
-        <p className="mt-6 text-neutral-500">
+        <p className="mt-4 text-xs text-neutral-500 sm:mt-6 sm:text-base">
           {progress < 100 ? 'installing' : 'installation complete'}
           <span className="animate-blink">_</span>
         </p>
