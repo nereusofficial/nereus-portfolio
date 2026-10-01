@@ -2,7 +2,7 @@ import { useState } from 'react'
 import type { FormEvent } from 'react'
 import { CheckCircle2, Send } from 'lucide-react'
 
-const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mppwnggq'
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mbglewqb'
 interface FormValues {
   name: string
   email: string
