@@ -21,10 +21,13 @@ export default function Navbar() {
         aria-label="Main navigation"
         className="relative flex h-[var(--nav-h)] items-center px-4 sm:px-6"
       >
-        <span className="font-mono text-sm font-bold tracking-tight">
-          <span className="text-neutral-400 dark:text-neutral-600">~/</span>nereus
-          <span className="animate-blink">_</span>
-        </span>
+        <img
+          src="/icon1.png"
+          alt="nereus logo"
+          className="h-6 w-6 cursor-pointer"
+          width={24}
+          height={24}
+        />
 
         <ul className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-6 md:flex">
           {navLinks.map((link) => (
