@@ -1,0 +1,183 @@
+@import "tailwindcss";
+
+:root {
+  --nav-h: 4rem;
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-mono: "JetBrains Mono Variable", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --color-ink: #0a0a0a;
+  --color-panel: #111111;
+  --color-line: #262626;
+  --color-fog: #a3a3a3;
+  --color-paper: #fafafa;
+
+  --animate-blink: blink 1.1s step-end infinite;
+  --animate-drift-1: drift-1 26s ease-in-out infinite alternate;
+  --animate-drift-2: drift-2 32s ease-in-out infinite alternate;
+  --animate-drift-3: drift-3 38s ease-in-out infinite alternate;
+  --animate-float: float 7s ease-in-out infinite;
+
+  @keyframes blink {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+  }
+
+  @keyframes drift-1 {
+    from {
+      transform: translate3d(0, 0, 0) scale(1);
+    }
+    to {
+      transform: translate3d(6%, 8%, 0) scale(1.1);
+    }
+  }
+
+  @keyframes drift-2 {
+    from {
+      transform: translate3d(0, 0, 0) scale(1);
+    }
+    to {
+      transform: translate3d(-5%, 10%, 0) scale(1.06);
+    }
+  }
+
+  @keyframes drift-3 {
+    from {
+      transform: translate3d(0, 0, 0) scale(1);
+    }
+    to {
+      transform: translate3d(-8%, -6%, 0) scale(1.12);
+    }
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    .animate-drift-1,
+    .animate-drift-2,
+    .animate-drift-3,
+    .animate-float {
+      animation: none;
+    }
+  }
+
+  body {
+    @apply bg-paper font-sans text-neutral-900 antialiased dark:bg-ink dark:text-neutral-100;
+  }
+
+  ::selection {
+    @apply bg-neutral-900 text-white dark:bg-white dark:text-black;
+  }
+
+  :focus-visible {
+    outline: 2px solid #000000;
+    outline-offset: 2px;
+  }
+
+  .dark :focus-visible {
+    outline-color: #ffffff;
+  }
+}
+
+.bg-grid {
+  background-image:
+    linear-gradient(to right, rgb(0 0 0 / 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(0 0 0 / 0.035) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+.dark .bg-grid {
+  background-image:
+    linear-gradient(to right, rgb(255 255 255 / 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(255 255 255 / 0.05) 1px, transparent 1px);
+}
+
+.scanlines {
+  position: relative;
+}
+
+.scanlines::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 3px,
+    rgb(0 0 0 / 0.03) 3px,
+    rgb(0 0 0 / 0.03) 4px
+  );
+}
+
+.dark .scanlines::after {
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 3px,
+    rgb(255 255 255 / 0.03) 3px,
+    rgb(255 255 255 / 0.03) 4px
+  );
+}
+
+.bg-glow-1 {
+  background: radial-gradient(circle, rgb(0 0 0 / 0.05) 0%, transparent 65%);
+  animation: var(--animate-drift-1);
+}
+
+.bg-glow-2 {
+  background: radial-gradient(circle, rgb(0 0 0 / 0.04) 0%, transparent 65%);
+  animation: var(--animate-drift-2);
+}
+
+.bg-glow-3 {
+  background: radial-gradient(circle, rgb(0 0 0 / 0.05) 0%, transparent 65%);
+  animation: var(--animate-drift-3);
+}
+
+.dark .bg-glow-1 {
+  background: radial-gradient(circle, rgb(255 255 255 / 0.07) 0%, transparent 65%);
+}
+
+.dark .bg-glow-2 {
+  background: radial-gradient(circle, rgb(255 255 255 / 0.05) 0%, transparent 65%);
+}
+
+.dark .bg-glow-3 {
+  background: radial-gradient(circle, rgb(255 255 255 / 0.08) 0%, transparent 65%);
+}
+
+.bg-vignette {
+  background: radial-gradient(ellipse at center, transparent 55%, rgb(0 0 0 / 0.06) 100%);
+}
+
+.dark .bg-vignette {
+  background: radial-gradient(ellipse at center, transparent 50%, rgb(0 0 0 / 0.4) 100%);
+}
