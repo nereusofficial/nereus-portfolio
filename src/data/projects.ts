@@ -16,6 +16,7 @@ export const projects: Project[] = [
     tags: ['Next.js', 'PostgreSQL', 'Tailwind CSS'],
     liveUrl: 'https://example.com',
     repoUrl: 'https://github.com/yourusername/project-2',
+    comingSoon: true,
   },
   {
     id: 'project-3',
@@ -24,5 +25,6 @@ export const projects: Project[] = [
     tags: ['TypeScript', 'Node.js', 'Docker'],
     liveUrl: 'https://example.com',
     repoUrl: 'https://github.com/yourusername/project-3',
+    comingSoon: true,
   },
 ]
