@@ -7,7 +7,7 @@ export const projects: Project[] = [
     description:
       'A fitness tracking web app — log workouts, track progress, and stay consistent with clean, data-driven insights.',
     tags: ['React', 'TypeScript', 'Tailwind CSS'],
-    liveUrl: 'https://fitwise-frontend.vercel.app',
+    liveUrl: 'https://fitwiseph.vercel.app',
   },
   {
     id: 'project-2',
