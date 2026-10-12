@@ -28,7 +28,7 @@ export default function Contact() {
             viewport={{ once: true, margin: '-80px' }}
             transition={{ duration: 0.5, ease: 'easeOut', delay: 0.1 }}
           >
-            <h3 className="font-mono text-xl font-bold tracking-tight">let's work together</h3>
+            <h3 className="font-mono text-xl font-bold tracking-tight">Let's work together</h3>
             <p className="mt-4 indent-8 text-justify leading-relaxed text-neutral-600 dark:text-fog">
               Open to freelance projects, full-time roles, and interesting collaborations. if you
               have an idea or just want to talk shop, my inbox is always open.
