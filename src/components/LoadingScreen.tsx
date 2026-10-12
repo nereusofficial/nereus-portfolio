@@ -26,7 +26,7 @@ export default function LoadingScreen({ fading }: LoadingScreenProps) {
     let raf = 0
 
     const tick = (now: number) => {
-      const t = Math.min(1, (now - start) / duration)
+      const t = Math.min(1, Math.max(0, (now - start) / duration))
       const eased = 1 - Math.pow(1 - t, 3)
       setProgress(Math.round(eased * 100))
       if (t < 1) raf = requestAnimationFrame(tick)
@@ -36,7 +36,8 @@ export default function LoadingScreen({ fading }: LoadingScreenProps) {
     return () => cancelAnimationFrame(raf)
   }, [reduceMotion])
 
-  const filled = Math.round((progress / 100) * BAR_LENGTH)
+  const clampedProgress = Math.max(0, Math.min(100, progress))
+  const filled = Math.round((clampedProgress / 100) * BAR_LENGTH)
   const bar = '█'.repeat(filled) + '░'.repeat(BAR_LENGTH - filled)
 
   return (
