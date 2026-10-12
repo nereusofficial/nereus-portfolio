@@ -6,12 +6,12 @@ export const projects: Project[] = [
     slot: 'Project 1',
     name: 'Fitwise',
     description:
-      'A fitness tracking web app — log workouts, track progress, and stay consistent with clean, data-driven insights.',
+      'A fitness calculator web app with AI-powered workout and nutrition recommendations based on your stats.',
     stack: {
       frontend: ['React', 'TypeScript', 'Tailwind CSS'],
       backend: ['Node.js', 'Express', 'Supabase'],
     },
-    demoUrl: 'https://fitwise-frontend.vercel.app',
+    demoUrl: 'https://fitwiseph.vercel.app',
     status: 'in-progress',
   },
   {
