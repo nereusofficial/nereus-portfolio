@@ -13,9 +13,9 @@ export const profile: Profile = {
 }
 
 export const navLinks: NavLink[] = [
-  { id: 'top', label: 'home' },
-  { id: 'about', label: 'about' },
-  { id: 'projects', label: 'projects' },
-  { id: 'journey', label: 'journey' },
-  { id: 'contact', label: 'contact' },
+  { id: 'top', label: 'Home' },
+  { id: 'about', label: 'About' },
+  { id: 'projects', label: 'Projects' },
+  { id: 'journey', label: 'Journey' },
+  { id: 'contact', label: 'Contact' },
 ]

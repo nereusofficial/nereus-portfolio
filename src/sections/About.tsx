@@ -19,7 +19,7 @@ export default function About() {
           transition={{ duration: 0.5, ease: 'easeOut' }}
         >
           <p className="font-mono text-sm text-neutral-500 dark:text-fog">{"// about.tsx"}</p>
-          <h2 className="mt-2 font-mono text-3xl font-bold tracking-tight sm:text-4xl">about</h2>
+          <h2 className="mt-2 font-mono text-3xl font-bold tracking-tight sm:text-4xl">About</h2>
         </motion.div>
 
         <div className="mt-12 grid gap-10 lg:grid-cols-2">

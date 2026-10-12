@@ -2,8 +2,14 @@ import { useRef, useState } from 'react'
 import type { MouseEvent } from 'react'
 import { motion, useReducedMotion } from 'framer-motion'
 import { ArrowUpRight } from 'lucide-react'
-import type { Project } from '@/types'
+import type { Project, ProjectStatus } from '@/types'
 import { GithubIcon } from './icons'
+
+const STATUS_LABELS: Record<ProjectStatus, string> = {
+  "in-progress": 'in progress',
+  completed: 'completed',
+  planned: 'planned',
+};
 
 interface ProjectCardProps {
   project: Project
@@ -52,9 +58,9 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             <span className="h-2.5 w-2.5 rounded-full bg-neutral-300 dark:bg-neutral-700" />
             <span className="h-2.5 w-2.5 rounded-full bg-neutral-300 dark:bg-neutral-700" />
             <span className="h-2.5 w-2.5 rounded-full bg-neutral-300 dark:bg-neutral-700" />
-            <span className="ml-2 font-mono text-xs text-neutral-500 dark:text-fog">
-              {project.title}
-            </span>
+              <span className="ml-2 font-mono text-xs text-neutral-500 dark:text-fog">
+                {project.slot}
+              </span>
           </div>
           <div className="flex flex-1 flex-col items-center justify-center p-5 text-center">
             <p className="font-mono text-sm text-neutral-400 dark:text-neutral-600">
@@ -91,28 +97,39 @@ export default function ProjectCard({ project }: ProjectCardProps) {
               <span className="h-2.5 w-2.5 rounded-full bg-neutral-300 dark:bg-neutral-700" />
               <span className="h-2.5 w-2.5 rounded-full bg-neutral-300 dark:bg-neutral-700" />
               <span className="ml-2 font-mono text-xs text-neutral-500 dark:text-fog">
-                {project.title}
+                {project.slot}
               </span>
+              {project.status && (
+                <span className="ml-auto flex shrink-0 items-center gap-1.5 border border-amber-400/30 bg-amber-400/10 px-2 py-0.5 font-mono text-[10px] lowercase tracking-wider text-amber-400">
+                  <span className="h-1.5 w-1.5 animate-pulse-dot rounded-full bg-amber-400" />
+                  {STATUS_LABELS[project.status]}
+                </span>
+              )}
             </div>
 
             <div className="flex flex-1 flex-col p-5">
-              <h3 className="font-mono text-lg font-bold tracking-tight">{project.title}</h3>
-              <p className="mt-2 flex-1 indent-4 text-justify text-sm leading-relaxed text-neutral-600 dark:text-fog">
+              <h3 className="font-mono text-lg font-bold tracking-tight">{project.name}</h3>
+              <p className="mt-2 flex-1 text-sm leading-relaxed text-neutral-600 dark:text-fog">
                 {project.description}
               </p>
 
-              <div className="mt-4 flex flex-wrap gap-x-3 gap-y-1">
-                {project.tags.map((tag) => (
-                  <span key={tag} className="font-mono text-xs text-neutral-500 dark:text-fog">
-                    {tag}
-                  </span>
+              <div className="mt-4 space-y-1.5">
+                {Object.entries(project.stack).map(([label, techs]) => (
+                  <p key={label} className="font-mono text-xs leading-relaxed">
+                    <span className="text-neutral-500 dark:text-fog">
+                      {label.charAt(0).toUpperCase() + label.slice(1)}:
+                    </span>{' '}
+                    <span className="text-neutral-700 dark:text-neutral-300">
+                      {techs.join(', ')}
+                    </span>
+                  </p>
                 ))}
               </div>
 
               <div className="mt-5 flex items-center gap-5 border-t border-neutral-200 pt-4 dark:border-line">
-                {project.liveUrl && (
+                {project.demoUrl && (
                   <a
-                    href={project.liveUrl}
+                    href={project.demoUrl}
                     target="_blank"
                     rel="noreferrer"
                     className="inline-flex items-center gap-1.5 font-mono text-sm transition-colors duration-200 hover:text-neutral-900 dark:hover:text-white"
@@ -126,7 +143,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                     href={project.repoUrl}
                     target="_blank"
                     rel="noreferrer"
-                    aria-label={`${project.title} source code on GitHub`}
+                    aria-label={`${project.name} source code on GitHub`}
                     className="inline-flex items-center gap-1.5 font-mono text-sm text-neutral-600 transition-colors duration-200 hover:text-neutral-900 dark:text-fog dark:hover:text-white"
                   >
                     <GithubIcon className="h-4 w-4" />

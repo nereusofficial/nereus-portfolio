@@ -25,7 +25,7 @@ export default function Projects() {
         >
           <p className="font-mono text-sm text-neutral-500 dark:text-fog">01_projects</p>
           <h2 className="mt-2 font-mono text-3xl font-bold tracking-tight sm:text-4xl">
-            selected work
+            Projects
           </h2>
         </motion.div>
 

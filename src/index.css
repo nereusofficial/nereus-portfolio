@@ -21,6 +21,7 @@
   --animate-drift-2: drift-2 32s ease-in-out infinite alternate;
   --animate-drift-3: drift-3 38s ease-in-out infinite alternate;
   --animate-float: float 7s ease-in-out infinite;
+  --animate-pulse-dot: pulse-dot 1.5s ease-in-out infinite;
 
   @keyframes blink {
     0%,
@@ -68,6 +69,16 @@
       transform: translateY(-10px);
     }
   }
+
+  @keyframes pulse-dot {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.25;
+    }
+  }
 }
 
 @layer base {
@@ -83,7 +94,8 @@
     .animate-drift-1,
     .animate-drift-2,
     .animate-drift-3,
-    .animate-float {
+    .animate-float,
+    .animate-pulse-dot {
       animation: none;
     }
   }

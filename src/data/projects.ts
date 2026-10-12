@@ -3,27 +3,38 @@ import type { Project } from '@/types'
 export const projects: Project[] = [
   {
     id: 'fitwise',
-    title: 'FitWise',
+    slot: 'Project 1',
+    name: 'Fitwise',
     description:
       'A fitness tracking web app — log workouts, track progress, and stay consistent with clean, data-driven insights.',
-    tags: ['React', 'TypeScript', 'Tailwind CSS'],
-    liveUrl: 'https://fitwiseph.vercel.app',
+    stack: {
+      frontend: ['React', 'TypeScript', 'Tailwind CSS'],
+      backend: ['Node.js', 'Express', 'Supabase'],
+    },
+    demoUrl: 'https://fitwise-frontend.vercel.app',
+    status: 'in-progress',
   },
   {
     id: 'project-2',
-    title: '[Project 2]',
+    slot: 'Project 2',
     description: '[What it does, the problem it solves, and your role in building it.]',
-    tags: ['Next.js', 'PostgreSQL', 'Tailwind CSS'],
-    liveUrl: 'https://example.com',
+    stack: {
+      frontend: ['Next.js', 'Tailwind CSS'],
+      backend: ['PostgreSQL'],
+    },
+    demoUrl: 'https://example.com',
     repoUrl: 'https://github.com/yourusername/project-2',
     comingSoon: true,
   },
   {
     id: 'project-3',
-    title: '[Project 3]',
+    slot: 'Project 3',
     description: '[What it does, the problem it solves, and your role in building it.]',
-    tags: ['TypeScript', 'Node.js', 'Docker'],
-    liveUrl: 'https://example.com',
+    stack: {
+      frontend: ['TypeScript'],
+      backend: ['Node.js', 'Docker'],
+    },
+    demoUrl: 'https://example.com',
     repoUrl: 'https://github.com/yourusername/project-3',
     comingSoon: true,
   },

@@ -2,9 +2,42 @@
 <html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
     <link rel="icon" type="image/svg+xml" href="/icon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Nereus Portfolio</title>
+    <script>
+      (function () {
+        var MAX_RETRIES = 3;
+        var TIMEOUT = 5000;
+        var KEY = 'boot_retries';
+        setTimeout(function () {
+          if (window.__BOOTED) {
+            try { sessionStorage.removeItem(KEY); } catch (e) {}
+            return;
+          }
+          var retries = 0;
+          try { retries = parseInt(sessionStorage.getItem(KEY) || '0', 10); } catch (e) {}
+          if (retries < MAX_RETRIES) {
+            try { sessionStorage.setItem(KEY, String(retries + 1)); } catch (e) {}
+            window.location.replace(window.location.pathname + '?_=' + Date.now());
+          } else {
+            try { sessionStorage.removeItem(KEY); } catch (e) {}
+            var root = document.getElementById('root');
+            if (root) {
+              root.innerHTML =
+                '<div style="min-height:100vh;display:flex;align-items:center;justify-content:center;background:#0a0a0a;color:#fff;font-family:monospace;padding:24px;text-align:center;">' +
+                '<div>' +
+                '<p style="font-size:20px;font-weight:700;">connection error</p>' +
+                '<p style="margin-top:8px;font-size:14px;color:#a3a3a3;">Please check your internet connection and refresh the page.</p>' +
+                '</div></div>';
+            }
+          }
+        }, TIMEOUT);
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

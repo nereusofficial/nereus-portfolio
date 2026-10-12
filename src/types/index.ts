@@ -1,11 +1,18 @@
+export type ProjectStatus = "in-progress" | "completed" | "planned";
+
 export interface Project {
   id: string;
-  title: string;
+  slot: string;
+  name?: string;
   description: string;
-  tags: string[];
+  stack: {
+    frontend: string[];
+    backend: string[];
+  };
   image?: string;
-  liveUrl?: string;
+  demoUrl?: string;
   repoUrl?: string;
+  status?: ProjectStatus;
   comingSoon?: boolean;
 }
 

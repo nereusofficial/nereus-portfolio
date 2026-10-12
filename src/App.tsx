@@ -28,6 +28,10 @@ export default function App() {
   }, [loading, fading])
 
   useEffect(() => {
+    window.__BOOTED = true
+  }, [])
+
+  useEffect(() => {
     const handlePageShow = (event: PageTransitionEvent) => {
       if (event.persisted) {
         setFading(false)
