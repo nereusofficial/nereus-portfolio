@@ -11,7 +11,7 @@ export const projects: Project[] = [
       frontend: ['React', 'TypeScript', 'Tailwind CSS'],
       backend: ['Node.js', 'Express', 'Supabase'],
     },
-    demoUrl: 'https://fitwise-frontend.vercel.app',
+    demoUrl: 'https://fitwiseph.vercel.app',
     status: 'in-progress',
   },
   {
